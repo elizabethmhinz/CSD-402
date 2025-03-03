@@ -1,0 +1,38 @@
+public class NestedLoopAssignment {
+    public static void main(String[] args) {
+        int rows = 7; // Number of Rows we want to print
+        int value = 1; // Initial power of 2 (2^0)
+
+        // Printing the pyramid pattern
+        for (int i = 1; i <= rows; i++) {
+            // Print leading spaces
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+
+            // Print the increasing powers of 2
+            int power = 1; // start from 2^0 (1)
+            for (int j = 1; j <= i; j++) {
+                System.out.print(power + " ");
+                power *= 2; // Double the value for the next power of 2
+            }
+
+            // Print the decreasing powers of 2
+            power /= 2; // reduce the last printed power
+            for (int j = 1; j < i; j++) {
+                power /= 2; // halve the value for the next power
+                System.out.print(power + " ");
+            }
+
+            // Print spaces before the '@' symbol
+            for (int j = 0; j < rows + i - 1; j++) {
+                System.out.print(" ");
+            }
+
+            // Print the '@' symbol at the end
+            System.out.print("@");
+
+            System.out.println(); // Move to the next line after each row
+        }
+    }
+}
